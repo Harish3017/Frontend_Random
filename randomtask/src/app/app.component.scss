@@ -1,0 +1,123 @@
+.section {
+    text-align: center;
+    padding: 50px 0;
+
+    .wrapper-header {
+        img  {
+            width: 60px;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            transform: translate(0px, 0px);
+            font-size: 30px;
+            font-weight: 500;
+
+            @media only screen 
+            and (min-device-width: 320px) 
+            and (max-device-width: 568px)
+            and (-webkit-min-device-pixel-ratio: 2)
+            and (orientation: portrait) {
+                margin-bottom: 20px;
+            }
+
+            span {
+                font-size: 30px;
+                color: #FE9901;
+                font-weight: 500;
+            }
+        }
+
+        .text {
+            transform: translate(0px, 0px);
+        }
+    }
+
+    .form {
+        @media only screen 
+        and (min-device-width: 320px) 
+        and (max-device-width: 568px)
+        and (-webkit-min-device-pixel-ratio: 2)
+        and (orientation: portrait) {
+            display: none;
+        }
+        
+        .wrapper-form-group {
+            margin-bottom: 20px;
+
+            label {
+                img {
+                    width: 15px;
+                }
+            }
+            
+            input,
+            textarea {
+                text-align: left;
+                margin: 0 auto;
+                margin-left: 10px;
+                width: 60%;
+                border: 1px solid #B3B3B3;
+                border-radius: 5px;
+                padding: 5px 10px;
+            }
+
+            textarea {
+                display: inline-table;
+            }
+
+            input:focus,
+            textarea:focus {
+                outline: 0;
+                border: 1px solid #FE9901;
+            }
+        }
+
+        .txt-error {
+            margin: 0 auto;
+            margin-top: -15px;
+            display: block;
+            margin-bottom: 10px;
+            text-align: left;
+            width: 60%;
+            position: relative;
+            left: 60px;
+
+            img {
+                width: 6px;
+                position: relative;
+                top: -2px;
+                margin: 0 5px;
+            }
+        }
+
+        .wrapper-message {
+            label,
+            textarea {
+                position: relative;
+                left: -15px;
+            }
+        }
+
+            .btn-learn-more {
+                background-color: #444343;
+                border: 1px solid #B3B3B3;
+                color: #FFFFFF;
+                position: relative;
+                left: 80px;
+                padding: 8px 25px;
+                border-radius: 5px;
+            }
+        
+    }
+
+    .wrapper {
+        width: 100%;
+        padding: 0 10px;
+    
+        button {
+            margin-right: 10px;
+            width: 70px;
+        }
+    }
+}
