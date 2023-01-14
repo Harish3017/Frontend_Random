@@ -12,32 +12,39 @@
       <div class="col-md-12">
         <form class="form">
           <div class="wrapper-form-group">
-            <input type="text" name="title" required>
-              <button class="btn-learn-more ">
+            <input type="text" name="title" [(ngModel)]="todo.title" required>
+              <button class="btn-learn-more " (click)="onSubmit()">
                 Add Task
               </button>
           </div>
         </form>
       </div>
 
-      <div class="row">
+      <div class="col-md-3">
+        <div class="wrapper-search">
+            <div class="wrapper-form-control">
+                <input type="text" placeholder="Status" data-aos="fade-down" data-aos-duration="500"
+                    data-aos-delay="500" >
+            </div>
+        </div>
+    </div>
+
+      <div class="row" *ngIf="!isLoading">
         <div class="wrapper">
           <table class="task-table">
             <thead>
               <tr>
                 <th scope="col">Title</th>
                 <th scope="col">Status</th>
-                <th scope="col"></th>
+                <th scope="col"> Action </th>
               </tr>
             </thead>
               <tbody>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td>
-                    <button class="wrapper-button">Edit</button>
-                    <button class="wrapper-button">Delete</button>
-                  </td>
+                <tr *ngFor = "let task of tasks">
+                  <td>{{task.title}}</td>
+                  <td>{{task.status}}</td>
+                  <td> <button class="wrapper-button">Edit</button> 
+                       <button class="wrapper-button">Delete</button></td>
                 </tr>
               </tbody>
           </table>

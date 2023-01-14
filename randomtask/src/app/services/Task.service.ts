@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
-import { Todo } from '../models/todo';
+import { Task } from '../models/Task';
 import { environment } from 'src/environments/environment';
 import { ServiceResponse } from '../models/ServiceResponse';
 
@@ -10,33 +10,33 @@ const API_URL = environment.API_URL;
 @Injectable({
   providedIn: 'root'
 })
-export class TodoService {
+export class TaskService {
 
-  private todos: Todo[] = [];
-  private todosSub = new Subject<Todo[]>();
+  private tasks: Task[] = [];
+  private tasksSub = new Subject<Task[]>();
 
   constructor(
     private http: HttpClient
   ) { }
 
-  public getTodos(): Todo[]{
-    this.todosSub.next(this.todos);
-    return this.todos;
+  public getTasks(): Task[]{
+    this.tasksSub.next(this.tasks);
+    return this.tasks;
   }
 
-  public searchTodoForTitle(keyword:string):void{
+  public searchTaskForTitle(keyword:string):void{
     if(keyword !== ''){
-      const todos: Todo[] = [];
+      const tasks: Task[] = [];
       
-      this.todos.map(todo => {
-        const isTodo = todo.title.toLowerCase().includes(keyword.toLowerCase());
-        if(isTodo === true){
-          todos.push(todo);
+      this.tasks.map(task => {
+        const isTask = task.title.toLowerCase().includes(keyword.toLowerCase());
+        if(isTask === true){
+          tasks.push(task);
         }
       });
-      this.todosSub.next(todos);
+      this.tasksSub.next(tasks);
     }else{
-      this.todosSub.next([]);
+      this.tasksSub.next([]);
     }
   }
 
@@ -48,21 +48,21 @@ export class TodoService {
     return this.http.get<ServiceResponse>(`${API_URL}/task/${title}`);
   }
 
-  public update(data:Todo): Observable<ServiceResponse>{
+  public update(data:Task): Observable<ServiceResponse>{
     return this.http.patch<ServiceResponse>(`${API_URL}/task/${data._id}`,data);
   }
 
-  public getSearchTodo(): void{
+  public getSearchTask(): void{
     this.http.get<ServiceResponse>(`${API_URL}/task`).subscribe(result=>{
       if(result.message === 'success'){
-        this.todos = result.data;
-        this.todosSub.next(this.todos);      
+        this.tasks = result.data;
+        this.tasksSub.next(this.tasks);      
       }
     });
   }
 
-  public getAllUpdatedTodo(): Observable<Todo[]>{
-    return this.todosSub.asObservable();
+  public getAllUpdatedTask(): Observable<Task[]>{
+    return this.tasksSub.asObservable();
   }
 
   public create(data:any): Observable<ServiceResponse>{

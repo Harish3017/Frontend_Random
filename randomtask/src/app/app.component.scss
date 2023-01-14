@@ -1,3 +1,30 @@
+.task-table {
+    width: 50%;
+    background-color: #ebe6e6;
+
+    thead {
+        background-color: #f5f3f3;
+
+        tr {
+            th {
+                padding: 10px;
+                text-transform: uppercase;
+                color: #161616;
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            border-bottom: 1px solid #050505;
+
+            td {
+                padding: 10px;
+            }
+        }
+    }
+}
+
 .section {
     text-align: center;
     padding: 50px 0;
@@ -111,13 +138,97 @@
         
     }
 
-    .wrapper {
-        width: 100%;
-        padding: 0 10px;
+    .row {
+        
+        padding: 5px 0;
     
-        button {
-            margin-right: 10px;
-            width: 70px;
+        @media only screen 
+        and (min-device-width: 200px) 
+        and (max-device-width: 300px)
+        and (-webkit-min-device-pixel-ratio: 2)
+        and (orientation: portrait) {
+            padding-bottom: 20px;
+        }
+        
+        .wrapper-search {
+            width: 100%;
+    
+            @media only screen 
+            and (min-device-width: 200px) 
+            and (max-device-width: 300px)
+            and (-webkit-min-device-pixel-ratio: 2)
+            and (orientation: portrait) {
+                width: 100%;
+            }
+    
+            .wrapper-form-control {
+                @media only screen 
+                and (min-device-width: 200px) 
+                and (max-device-width: 300px)
+                and (-webkit-min-device-pixel-ratio: 2)
+                and (orientation: portrait) {
+                    width: 100%;
+                }
+        
+                input {
+                    display: inline-block;
+                    padding: 10px 15px;
+                    width: 100%;
+                    border-radius: 5px;
+                    border: 1px solid #afafaf;
+                    
+                    @media only screen 
+                    and (min-device-width: 200px) 
+                    and (max-device-width: 300px)
+                    and (-webkit-min-device-pixel-ratio: 2)
+                    and (orientation: portrait) {
+                        margin-bottom: 10px;
+                    }
+                }
+    
+                input::placeholder {
+                    position: relative;
+                    left: 25px;
+                }
+    
+                input:focus {
+                    border: 1px solid #FE9901;
+                    background-image: none;
+                }
+    
+                input:focus::placeholder {
+                    color: transparent;
+                }
+            }
+        
+            .wrapper-button {
+                width: 20%;
+                float: right;
+                button {
+                    padding: 10px 50px;
+                    text-transform: uppercase;
+                    border-radius: 6px;
+                    font-weight: 500;
+                    transition: 0.2s;
+                    background-color: #FE9901;
+                    color: #FFFFFF;
+                    border: 1px solid #FE9901;
+    
+                    @media only screen 
+                    and (min-device-width: 200px) 
+                    and (max-device-width: 300px)
+                    and (-webkit-min-device-pixel-ratio: 2)
+                    and (orientation: portrait) {
+                        width: 100%;
+                    }
+                }
+            
+                button:hover {
+                    background-color:  #FFFFFF;
+                    color: #FE9901;
+                    transition: 0.2s;
+                }
+            }
         }
     }
 }
